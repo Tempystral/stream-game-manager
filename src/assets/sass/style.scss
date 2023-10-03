@@ -1,0 +1,11 @@
+@charset "utf-8";
+@use "../node_modules/bulma/bulma.sass" as *;
+
+@import "@creativebulma/bulma-tooltip";
+
+html,
+body {
+  height: 100%;
+  background: black;
+  overflow-y: unset;
+}
