@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false,
+    "files.eol": "\n", 
+    "search.exclude": {
+      "**/.github": true,
+      "**/dist": true,
+      "**/node_modules": true,
+      "package-lock.json": true,
+      "LICENSE": true,
+      "README.md": true,
+      ".gitignore": true,
+      ".eslintrc.json": true
+    },
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "javascript.format.semicolons": "ignore",
+    "typescript.format.semicolons": "ignore",
+
+    // "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+      "javascript",
+      "vue"
+    ],
+    "[vue]": {
+      "editor.defaultFormatter": "Vue.volar"
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "Vue.volar",
+      "dbaeumer.vscode-eslint",
+      "vue.vscode-typescript-vue-plugin",
+      "antfu.vite"
+    ],
+    "unwantedRecommendations": [
+      "octref.vetur",
+      "esbenp.prettier-vscode",
+    ]
+  }
+}

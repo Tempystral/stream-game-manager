@@ -1,6 +1,4 @@
-*.code-workspace
 **/node_modules/
-.vscode/*
 **/css/
 **Zone.Identifier
 data/test.json
@@ -21,7 +19,6 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
