@@ -2,8 +2,10 @@
   "recommendations": [
     "Vue.volar",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "vue.vscode-typescript-vue-plugin",
     "antfu.vite"
+  ],
+  "unwantedRecommendations": [
+    "esbenp.prettier-vscode",
   ]
 }
