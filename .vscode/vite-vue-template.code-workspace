@@ -5,6 +5,7 @@
     }
   ],
   "settings": {
+    // Editor
     "editor.tabSize": 2,
     "editor.insertSpaces": false,
     "files.eol": "\n", 
@@ -19,10 +20,12 @@
       ".eslintrc.json": true
     },
 
+    // JS and TS
     "typescript.tsdk": "node_modules/typescript/lib",
     "javascript.format.semicolons": "ignore",
     "typescript.format.semicolons": "ignore",
 
+    // Formatting and Linting
     // "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
@@ -34,6 +37,9 @@
     "[vue]": {
       "editor.defaultFormatter": "Vue.volar"
     },
+
+    // Build tools
+    "vite.autoStart": false,
   },
   "extensions": {
     "recommendations": [
