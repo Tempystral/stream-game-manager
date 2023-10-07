@@ -37,11 +37,32 @@
 		"no-unused-vars": "off",
 		"semi": "warn",
 		"max-len": "off",
-		
+		"block-spacing": [
+			"warn", "always"
+		],
+		"brace-style": [
+			"warn", "1tbs"
+		],
+		"curly": [
+			"warn",
+			"multi-line",
+			"consistent"
+		],
+		"object-curly-newline": [
+			"warn", {
+        "ObjectExpression": "always",
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+    	}
+		],
 		"vue/html-indent": [
 			"warn", "tab", {
 				"alignAttributesVertically": true
 			}
+		],
+		"vue/script-indent": [
+			"warn", "tab"
 		],
 		"vue/html-self-closing": "warn",
 		"vue/singleline-html-element-content-newline": "off",
