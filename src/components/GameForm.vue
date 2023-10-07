@@ -1,23 +1,34 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import data from "../assets/json/data.json";
 import { Multiselect } from 'vue-multiselect';
 import "vue-multiselect/dist/vue-multiselect.css";
 
 const searchResponse: GiantBombResponse<GiantBombGamesList> = data;
-const selected = ref({} as GiantBombGamesList);
-
-const singleResponse = [{ value: "a", text: "a text" }];
-const selectedSingle = ref("");
+const selected = ref<GiantBombGamesList | null>(null);
+const uniqueNames = computed(() => new Set(searchResponse.results?.map(r => r.name)));
 
 function formatSearchResult(result: GiantBombGamesList) {
-	return `${result.name} - ${result?.aliases}`;
+	return `${result.name}${formatAliases(result)} [${getPlatforms(result, 2)}] (${result.original_release_date || "???"})`;
+}
+
+function getPlatforms(option: GiantBombGamesList, limit: number): string[] | undefined {
+	return option.platforms?.slice(0, limit).map(p => p.name);
+}
+
+function formatAliases(option: GiantBombGamesList) {
+	if (option.aliases && option.name in uniqueNames.value) {
+		return ` - (${option.aliases?.replaceAll("\n", ", ")})`; 
+	} else {
+		return ""; 
+	}
 }
 </script>
 
 <template>
 	<div>
-		<p>{{ selected.name }} | {{ selected.guid }} | {{ selected.original_release_date || "Unknown" }} </p>
+		<p v-if="selected">{{ selected?.name }} | {{ selected?.guid }} | {{ selected?.original_release_date || "Unknown" }} </p>
+		<p v-else>No game selected</p>
 		<Multiselect v-model="selected"
 			:options="searchResponse.results"
 			:custom-label="formatSearchResult"
@@ -26,16 +37,6 @@ function formatSearchResult(result: GiantBombGamesList) {
 			label="game-selector"
 			track-by="guid"
 		/>
-
-								 
-		<!-- <ModelListSelect v-slot="slotProps" v-model="selected" :list="searchResponse.results" option-value="guid"
-										 :custom-text="formatSearchResult" placeholder="Search">
-			{{ slotProps.option.name }} - index: {{ slotProps.idx }}
-		</ModelListSelect>
-
-		<ModelSelect v-slot="slotProps" v-model="selectedSingle" :options="singleResponse">
-			{{ slotProps.option.value }} - index: {{ slotProps.option.text }}
-		</ModelSelect> -->
 	</div>
 </template>
 

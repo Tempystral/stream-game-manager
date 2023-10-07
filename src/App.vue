@@ -7,7 +7,7 @@ import GameForm from "./components/GameForm.vue";
 <template>
 	<!-- Renders the contents returned by the vue router -->
 	<!-- router-view -->
-	<GameForm></GameForm>
+	<GameForm />
 </template>
 
 <style lang="scss">
