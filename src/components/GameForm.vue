@@ -26,18 +26,29 @@ function formatAliases(option: GiantBombGamesList) {
 </script>
 
 <template>
-	<div>
-		<p v-if="selected">{{ selected?.name }} | {{ selected?.guid }} | {{ selected?.original_release_date || "Unknown" }} </p>
-		<p v-else>No game selected</p>
-		<Multiselect v-model="selected"
-			:options="searchResponse.results"
-			:custom-label="formatSearchResult"
-			:allow-empty="false"
-			placeholder="Search for games..."
-			label="game-selector"
-			track-by="guid"
-		/>
+	<div id="game-form" class="container">
+		<div class="field">
+			<label v-if="selected" class="label">{{ selected?.name }} | {{ selected?.guid }} | {{ selected?.original_release_date || "Unknown" }} </label>
+			<label v-else class="label">No game selected</label>
+			<div class="control">
+				<Multiselect v-model="selected"
+					:options="searchResponse.results"
+					:custom-label="formatSearchResult"
+					:allow-empty="false"
+					placeholder="Search for games..."
+					label="game-selector"
+					track-by="guid"
+				/>
+			</div>
+		</div>
 	</div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "node_modules/bulma/bulma.sass";
+
+#game-form {
+	background-color: lightslategrey;
+}
+
+</style>
