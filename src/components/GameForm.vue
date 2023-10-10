@@ -3,8 +3,9 @@ import { computed, ref } from "vue";
 import data from "../assets/json/data.json";
 import { Multiselect } from 'vue-multiselect';
 import "vue-multiselect/dist/vue-multiselect.css";
+import { GiantBombGamesList, GiantBombSearchResponse } from "../ts/types/giantbomb";
 
-const searchResponse: GiantBombResponse<GiantBombGamesList> = data;
+const searchResponse: GiantBombSearchResponse = data;
 const selected = ref<GiantBombGamesList | null>(null);
 const uniqueNames = computed(() => new Set(searchResponse.results?.map(r => r.name)));
 
@@ -42,6 +43,16 @@ function formatAliases(option: GiantBombGamesList) {
 			</div>
 		</div>
 	</div>
+
+	<!-- 
+					Game											(use games api)
+			 description
+		picture					platform 				(get from releases api also, sort by release date)
+		picture 				release date 		(use releases api, filter by game ID)
+		picture 				genre
+		picture 				publisher
+
+	 -->
 </template>
 
 <style lang="scss">

@@ -79,9 +79,6 @@ interface GiantBombGamesList {
   resource_type: string;
 }
 
-type GiantBombSearchResponse = GiantBombResponse<GiantBombGamesList>;
-type GiantBombGameResponse = GiantBombResponse<GiantBombGameData>;
-
 interface GiantBombGameData {
   aliases?: string | null;
   api_detail_url: string;
@@ -124,6 +121,9 @@ interface GiantBombGameData {
   similar_games?: GiantBombParameter[] | null;
   themes?: GiantBombParameter[] | null;
 }
+
+type GiantBombSearchResponse = GiantBombResponse<GiantBombGamesList>;
+type GiantBombGameResponse = GiantBombResponse<GiantBombGameData>;
 
 export type {
  GiantBombGameData, GiantBombGamesList, GiantBombGameResponse, GiantBombSearchResponse 
